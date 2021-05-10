@@ -110,7 +110,7 @@ func makeChannelBtn(ch1 *channel, imgMap map[string]*gtk.Image) *gtk.Button {
 	}
 	img, _ := gtk.ImageNew()
 	if ch1.logo == "" {
-		ch1.icon = "images/kylix.jpg"
+		ch1.icon = kylixIcon
 		if defaultPixBuf == nil {
 			defaultPixBuf, _ = gdk.PixbufNewFromFileAtSize(ch1.icon, -1, 12)
 		}
@@ -256,7 +256,7 @@ func setChannelImages(imgMap map[string]*gtk.Image, g *group, groupDir string) {
 				io.Copy(file, resp.Body)
 			}
 		} else {
-			ch1.icon = "images/kylix.jpg"
+			ch1.icon = kylixIcon
 		}
 		pixBuf, _ := gdk.PixbufNewFromFileAtSize(ch1.icon, -1, 12)
 		img.SetFromPixbuf(pixBuf)

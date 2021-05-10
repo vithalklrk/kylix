@@ -18,6 +18,9 @@ var curGroup *group
 var curChannel *channel
 var dispFavs bool
 
+const picDir = "/usr/share/kylix/pictures"
+const kylixIcon = picDir + "/kylix.jpg"
+
 func backButtonClicked() {
 	if mpvClient != nil {
 		mpvClient.SetPause(true)
@@ -75,6 +78,7 @@ func mainWnd(app *gtk.Application) {
 	wnd := obj.(*gtk.Window)
 	wnd.Move(config.wndX, config.wndY)
 	wnd.SetDefaultSize(config.wndWd, config.wndHt)
+	wnd.SetIconFromFile(kylixIcon)
 	setTitle()
 	wnd.ShowAll()
 	app.AddWindow(wnd)
@@ -86,17 +90,17 @@ func mainWnd(app *gtk.Application) {
 	showButton("go_back_button", false)
 	showBox("playback_bar", false)
 
-	setPicture("channels_logo", "images/Channels.png", 96)
+	setPicture("channels_logo", picDir+"/Channels.png", 96)
 	s := fmt.Sprintf("Channels(%d)", getNChannels(channels))
 	setLabelText("channels_label", s)
 	getButton("tv_button").Connect("clicked", channelsClicked)
 
-	setPicture("series_logo", "images/Series.jpeg", 96)
+	setPicture("series_logo", picDir+"/Series.jpeg", 96)
 	s = fmt.Sprintf("Series(%d)", getNChannels(series))
 	setLabelText("series_label", s)
 	getButton("series_button").Connect("clicked", seriesClicked)
 
-	setPicture("movies_logo", "images/Movies.png", 96)
+	setPicture("movies_logo", picDir+"/Movies.png", 96)
 	s = fmt.Sprintf("Movies(%d)", getNChannels(movies))
 	setLabelText("movies_label", s)
 	getButton("movies_button").Connect("clicked", moviesClicked)
@@ -162,7 +166,7 @@ func about() {
 	dlg.SetVersion("1.0")
 	dlg.SetWebsite("https://github.com/vithalklrk/kylix")
 	dlg.SetAuthors([]string{"Vithal Kuchibhotla", "", "Channel source from", "https://iptv-org.github.io/iptv/channels.json"})
-	pixBuf, _ := gdk.PixbufNewFromFileAtSize("images/kylix.jpg", 128, 128)
+	pixBuf, _ := gdk.PixbufNewFromFileAtSize(picDir+"/kylix.jpg", 128, 128)
 	dlg.SetLogo(pixBuf)
 	dlg.Connect("response", func(dlg *gtk.AboutDialog, resp int) {
 		dlg.Destroy()
