@@ -18,7 +18,8 @@ var curGroup *group
 var curChannel *channel
 var dispFavs bool
 
-const picDir = "/usr/share/kylix/pictures"
+const shareDir = "/usr/share/kylix"
+const picDir = shareDir + "/pictures"
 const kylixIcon = picDir + "/kylix.jpg"
 
 func backButtonClicked() {
@@ -67,7 +68,7 @@ func seriesClicked() {
 var builder *gtk.Builder
 
 func mainWnd(app *gtk.Application) {
-	const gladeFile = "kylix.ui"
+	const gladeFile = shareDir + "/kylix.ui"
 	var err error
 	builder, err = gtk.BuilderNewFromFile(gladeFile)
 	if err != nil {
