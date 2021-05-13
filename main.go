@@ -9,6 +9,7 @@ import (
 	"path/filepath"
 	"sort"
 	"strings"
+	"time"
 
 	"github.com/gotk3/gotk3/gdk"
 	"github.com/gotk3/gotk3/glib"
@@ -260,6 +261,7 @@ func setChannelImages(imgMap map[string]*gtk.Image, g *group, groupDir string) {
 		}
 		pixBuf, _ := gdk.PixbufNewFromFileAtSize(ch1.icon, -1, 12)
 		img.SetFromPixbuf(pixBuf)
+		time.Sleep(1000 * time.Millisecond)
 	}
 }
 
