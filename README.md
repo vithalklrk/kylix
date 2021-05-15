@@ -1,6 +1,6 @@
-# kylix
-
 ![plot](./images/kylix.jpg)
+
+# kylix
 
 Kylix is a utility to watch ipTV channels on your monitor. It's written in Go language
 
