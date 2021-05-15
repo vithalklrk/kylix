@@ -1,5 +1,7 @@
 # kylix
 
+![plot](./images/kylix.jpg)
+
 Kylix is a utility to watch ipTV channels on your monitor. It's written in Go language
 
 The binaries (.deb file) are available only for Debian-based systems like Ubuntu, Mint etc. Just download the release and use the command 
